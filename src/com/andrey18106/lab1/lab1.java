@@ -2,6 +2,9 @@ package com.andrey18106.lab1;
 
 // Variant #3. Task numbers: 25, 4, 12, 3, 20
 
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -37,6 +40,7 @@ public class lab1 {
 
         // ---------- #25 ----------
         System.out.println(CalculateDaysFromYearsBeginning("13.01.21"));
+        System.out.println(CalculateDaysFromYearsBeginning2("14.01.21"));
     }
 
     // #3:
@@ -98,7 +102,7 @@ public class lab1 {
     // Створіть метод, який може підрахувати кількість голосних букв у будь якому слові (мова українська)
     public static int CalculateVowelLetters(String word) {
         int count = 0;
-        String vowelLetters =  "аеиіоуяюєї";
+        String vowelLetters = "аеиіоуяюєї";
         for (int i = 0; i < word.length(); i++) {
             if (vowelLetters.indexOf(word.charAt(i)) != -1) {
                 count++;
@@ -131,6 +135,22 @@ public class lab1 {
 
         long result = InputDate.getTime() - FirstDayOfYearDate.getTime();
         return TimeUnit.DAYS.convert(result, TimeUnit.MILLISECONDS);
+    }
+
+    public static long CalculateDaysFromYearsBeginning2(String date) {
+        String dateFormatRegex = "^([0-2][0-9]||3[0-1])\\.(0[0-9]||1[0-2])\\.([0-9][0-9])?[0-9][0-9]$";
+        if (!(date.matches(dateFormatRegex)))
+            return -1;
+
+        String[] splitDate = date.split("\\.");
+        int inputDay = Integer.parseInt(splitDate[0]);
+        Month inputMonth = Month.of(Integer.parseInt(splitDate[1]));
+        int inputYear = 2000 + Integer.parseInt(splitDate[2]);
+
+        LocalDateTime firstDayOfYearDate = LocalDateTime.of(inputYear, Month.of(1), 1, 0, 0);
+        LocalDateTime inputDate = LocalDateTime.of(inputYear, inputMonth, inputDay, 0, 0);
+
+        return ChronoUnit.DAYS.between(firstDayOfYearDate, inputDate);
     }
 
 }
