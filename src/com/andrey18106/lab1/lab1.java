@@ -40,7 +40,7 @@ public class lab1 {
 
         // ---------- #25 ----------
         System.out.println(CalculateDaysFromYearsBeginning("13.01.21"));
-        System.out.println(CalculateDaysFromYearsBeginning2("14.01.21"));
+        System.out.println(CalculateDaysFromYearsBeginning2("14.01-21"));
     }
 
     // #3:
@@ -116,7 +116,7 @@ public class lab1 {
     // та повертає кількість діб з початку року до цієї дати.
     // Ви повинні врахувати, що у лютому може бути різна кількість дат.
     public static long CalculateDaysFromYearsBeginning(String date) {
-        String dateFormatRegex = "^([0-2][0-9]||3[0-1])\\.(0[0-9]||1[0-2])\\.([0-9][0-9])?[0-9][0-9]$";
+        String dateFormatRegex = "^([0-2][0-9]|3[0-1])\\.(0[0-9]|1[0-2])\\.([0-9][0-9])?[0-9][0-9]$";
         if (!(date.matches(dateFormatRegex)))
             return -1;
 
@@ -138,7 +138,7 @@ public class lab1 {
     }
 
     public static long CalculateDaysFromYearsBeginning2(String date) {
-        String dateFormatRegex = "^([0-2][0-9]||3[0-1])\\.(0[0-9]||1[0-2])\\.([0-9][0-9])?[0-9][0-9]$";
+        String dateFormatRegex = "^([0-2][0-9]|3[0-1])\\.(0[0-9]|1[0-2])\\.([0-9][0-9])?[0-9][0-9]$";
         if (!(date.matches(dateFormatRegex)))
             return -1;
 
