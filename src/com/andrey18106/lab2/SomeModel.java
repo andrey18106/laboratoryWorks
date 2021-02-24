@@ -7,7 +7,6 @@ public class SomeModel {
 
     public SomeModel(int field) {
         someField = field;
-        someStaticField = field + 1;
         someStaticField++;
     }
 

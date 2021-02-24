@@ -30,24 +30,19 @@ public class lab2 {
         Programmer(1700, 14);
         private int salary;
         private int weekends;
-
         Position(int salary, int weekends) {
             this.salary = salary;
             this.weekends = weekends;
         }
-
         public String toString() {
             return "Position [" + this.name() + "]: $" + salary + " (weekends: " + weekends + ")";
         }
-
         public void setSalary(int value) {
             this.salary = value;
         }
-
         public void setWeekends(int value) {
             this.weekends = value;
         }
-
         public int getWeekends() {
             return this.weekends;
         }
